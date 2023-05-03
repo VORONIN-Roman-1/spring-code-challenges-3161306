@@ -28,6 +28,11 @@ public class CateringJobController {
     public List<CateringJob> getCateringJobs() {
         return cateringJobRepository.findAll();
     }
+    @GetMapping("/find")
+    @ResponseBody
+    public CateringJob getCateringJobsFind() {
+        return cateringJobRepository.findTopByOrderByIdAsc().get();
+    }
 
     @GetMapping("/{id}")
     @ResponseBody
